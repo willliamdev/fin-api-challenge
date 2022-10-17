@@ -26,7 +26,7 @@ describe("Create User Controller", () => {
     expect(res.status).toBe(201);
   });
 
-  it("should be able to create a new user", async () => {
+  it("should not be able to create a new user if the email is already being used", async () => {
     const res = await request(app).post("/api/v1/users/").send({
       name: "Jhon Doe",
       email: "johndoe@email.com",
